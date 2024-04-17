@@ -15,6 +15,4 @@ app.use((req,res,next) =>{
 
 
 
-let server = http.createServer(app)
-
-server.listen(4000);
+app.listen(4000);

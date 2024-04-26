@@ -1,13 +1,11 @@
-const express = require("express");
+const path = require('path');
+
+const express = require('express');
+
+const productsController = require('../controllers/product');
 
 const router = express.Router();
 
-const userPage = require('../controllers/user')
-
-router.get("/shop",userPage.shopAt );
-
-  router.get("/contactus", userPage.contactUs);
-  router.get("/success", userPage.successPage);
-
+router.get('/', productsController.getProducts);
 
 module.exports = router;

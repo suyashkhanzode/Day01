@@ -4,6 +4,8 @@ const path = require('path')
 
 const express = require('express');
 
+const errorHandler = require('./controllers/error')
+
 const bodyParser = require('body-parser');
 
 const app = express();
@@ -16,9 +18,7 @@ app.use(bodyParser.urlencoded({extended : false}));
 app.use('/admin',adminRoute);
 app.use('/shop',shopRoute);
 
-app.use((req,res,next) =>{
-   res.status(404).sendFile(path.join(__dirname,'views','404.html'))
-})
+app.use(errorHandler.loadError)
 
 
 app.listen(4000);
